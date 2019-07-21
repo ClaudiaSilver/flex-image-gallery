@@ -69,9 +69,10 @@
       align-items: center;
     }
 
-    .panel > *:first-child {transform: translateY(-100%)} /* each of the first children are now off-screen*/
-    .panel.open-active
-    .panel > *:last-child {transform: translateY(-100%)} /* each of the first children are now off-screen*/
+    .panel > *:first-child {transform: translateY(-100%);} /* each of the first children are now off-screen*/
+    .panel.open-active > *:first-child {transform: translateY(0%);}
+    .panel > *:last-child {transform: translateY(100%);}
+    .panel.open-active > *:last-child {transform: translateY(0%);} /* each of the last children are now off-screen*/
 
     
 
@@ -88,6 +89,7 @@
     }
 
     .panel.open {
+      flex: 5; /* takes 5 times the amount of extra room in the transition! */
       font-size: 40px;
     }
 
@@ -123,6 +125,26 @@
   </div>
 
   <script>
+    const panels = document.querySelectorAll('.panel'); // retuns nodelist of all panels
+    // function that toggles the class of open
+    function toggleOpen() {
+      this.classList.toggle('open'); //classList adds,removes and toggles classes
+    }
+
+    function toggleActive(e) {
+      console.log(e.propertyName); // shows which properties are active during an 'open' event
+      if(e.propertyName.includes('flex')) { // Safari: flex, all other browsers: flex-grow
+        this.classList.toggle('open-active');
+      }
+    }
+
+
+    // loop over panels and listen for click on each of them
+    panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+    //when transition has ended, make top and bottom panels appear
+    panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
+
+
 
   </script>
 
