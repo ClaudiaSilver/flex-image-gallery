@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Flex Panels 💪</title>
-  <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope&display=swap' rel='stylesheet'>
 </head>
 <body>
   <style>
@@ -49,20 +49,20 @@
       align-content: center;
       display: flex; /* panel is now flex item and flex-container for its children*/
       flex-direction: column;
+      width: 100%;
     }
 
-    .panel1 { background-image:url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500); }
-    .panel2 { background-image:url(https://source.unsplash.com/rFKUFzjPYiQ/1500x1500); }
-    .panel3 { background-image:url(https://images.unsplash.com/photo-1465188162913-8fb5709d6d57?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&w=1500&h=1500&fit=crop&s=967e8a713a4e395260793fc8c802901d); }
-    .panel4 { background-image:url(https://source.unsplash.com/ITjiVXcwVng/1500x1500); }
-    .panel5 { background-image:url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500); }
+    .panel1 { background-image:url(https://images.unsplash.com/photo-1543716627-839b54c40519?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80); }
+    .panel2 { background-image:url(https://images.unsplash.com/photo-1449156369265-4a9742aaf262?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80); }
+    .panel3 { background-image:url(https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80); }
+    .panel4 { background-image:url(https://images.unsplash.com/photo-1513543825760-e71b6f5e5ece?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60); }
+    .panel5 { background-image:url(https://images.unsplash.com/photo-1524261208223-eeeaeedaeacd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80); }
 
     /* Flex items */
     .panel > * { /* every immediate child of the panel class will have the below */
       margin: 0;
       width: 100%;
       transition: transform 0.5s;
-      border: 1px solid red;
       flex: 1 0 auto; /* grow, shrink, flex-basis*/
       display: flex;
       justify-content: center;
@@ -77,20 +77,22 @@
     
 
     .panel p {
-      text-transform: uppercase;
-      font-family: 'Amatic SC', cursive;
+      text-transform: lowercase;
+      font-family: 'Annie Use Your Telescope', cursive;
       text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
       font-size: 2em;
+      
+      
     }
     
     .panel p:nth-child(2) {
-      font-size: 4em;
-      
+      font-size: 4em; 
     }
 
     .panel.open {
       flex: 5; /* takes 5 times the amount of extra room in the transition! */
-      font-size: 40px;
+      font-size: 30px;
+      
     }
 
   </style>
@@ -98,35 +100,36 @@
 
   <div class="panels">
     <div class="panel panel1">
-      <p>Hey</p>
-      <p>Let's</p>
-      <p>Dance</p>
+      <p>You've never wondered</p>
+      <p>Why</p>
+      <p>before, have you?</p>
     </div>
     <div class="panel panel2">
-      <p>Give</p>
-      <p>Take</p>
-      <p>Receive</p>
+      <p>Things are the way they</p>
+      <p>Are</p>
+      <p>And you keep calm and carry on</p>
     </div>
     <div class="panel panel3">
-      <p>Experience</p>
-      <p>It</p>
-      <p>Today</p>
+      <p>But something's changed </p>
+      <p>You</p>
+      <p>know this can't be it</p>
     </div>
     <div class="panel panel4">
-      <p>Give</p>
-      <p>All</p>
-      <p>You can</p>
+      <p>But, deep down, what do you</p>
+      <p>Really</p>
+      <p>Want to do with your life? </p>
     </div>
     <div class="panel panel5">
-      <p>Life</p>
-      <p>In</p>
-      <p>Motion</p>
+      <p>What if all you need is right </p>
+      <p>Here?</p>
+      <p>Just reach out and - </p>
     </div>
   </div>
 
   <script>
     const panels = document.querySelectorAll('.panel'); // retuns nodelist of all panels
     // function that toggles the class of open
+
     function toggleOpen() {
       this.classList.toggle('open'); //classList adds,removes and toggles classes
     }
